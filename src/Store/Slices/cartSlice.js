@@ -34,5 +34,8 @@ const cartSlice =createSlice({
     }
 });
 
+// exporting Actions of cart like addItem(),removeItem(),incremenet() etc
 export const CartActions= cartSlice.actions;
+
 export default cartSlice;
+
