@@ -10,16 +10,18 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import Relatedtab from "../Relatedtab/Relatedtab";
-import Paginationcomp from "../Paginationcomp/Paginationcomp";
 import Featuredcategories2 from "../../../Featuredcategory/Featuredcategory";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Callsupport from "../../../Callsupport/Callsupport";
+
 
 const ITEM_HEIGHT = "100%";
 const ITEM_PADDING_TOP = 8;
 
 const About = () => {
   const [expanded, setExpanded] = useState([true, true, true]); // Initialize to true for each Accordion
+  const [activePage,setActivepage]=useState(1);
+
   const handleAccordionChange = (panel) => (event, isExpanded) => {
     setExpanded((prevExpanded) => {
       const newExpanded = [...prevExpanded];
@@ -27,6 +29,7 @@ const About = () => {
       return newExpanded;
     });
   };
+
   const accordionStyle = {
     backgroundColor: "#fff",
     color: "rgba(0, 0, 0, 0.87)",
@@ -379,9 +382,11 @@ const About = () => {
           </Grid>
 
           <Relatedtab />
-          <Paginationcomp />
+          
+      
         </Grid>
       </Grid>
+    
       <Featuredcategories2 />
       <Callsupport />
     </Box>

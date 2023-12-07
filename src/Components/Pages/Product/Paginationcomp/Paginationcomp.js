@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Pagination, PaginationItem} from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -8,6 +8,20 @@ import CardContent from '@mui/material/CardContent';
 
 
 const Paginationcomp = () => {
+  const [activePage,setActivepage]=useState(1);
+
+
+  
+  const OpenPage = (props) => {
+    const { children, page, index } = props;
+  
+    return (
+      <div hidden={page !== index}>
+        {page === index && <Box>{children}</Box>}
+      </div>
+    );
+  };
+    
   return (
     <Box sx={{marginTop:'20px',display:'flex',justifyContent:'center',paddingX:{md:'0',sm:'0',xs:'20px'}}}>
             <Pagination
@@ -16,6 +30,7 @@ const Paginationcomp = () => {
             shape="rounded"
             size="large"
             color="primary"
+            onChange={(event,newPage)=>setActivepage(newPage)}
             renderItem={(item) => (
               <PaginationItem
                 {...item}
@@ -46,6 +61,21 @@ const Paginationcomp = () => {
               />
             )}
           />
+        <OpenPage page ={activePage} index={1}>
+          page 1
+        </OpenPage>
+        <OpenPage page ={activePage} index={2}>
+          page 2
+        </OpenPage>
+        <OpenPage page ={activePage} index={3}>
+          page 3
+        </OpenPage>
+        <OpenPage page ={activePage} index={4}>
+          page 1
+        </OpenPage>
+        <OpenPage page ={activePage} index={5}>
+          page 1
+        </OpenPage>
     </Box>
   )
 }
