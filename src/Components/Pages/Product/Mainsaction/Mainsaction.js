@@ -16,7 +16,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Callsupport from "../../../Callsupport/Callsupport";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchProducts } from "../../../../Store/Slices/ProductSlice";
-import CircularProgress from '@mui/material/CircularProgress';
 import Skeleton from '@mui/material/Skeleton';
 
 
@@ -393,7 +392,6 @@ const About = () => {
           </Grid>
           {
             loading?(
-              
               <Grid container  spacing={2} sx={{marginTop:'50px'}} >
                 <Grid item lg={12} md={12} sm={12} xs={12} >
                   <Skeleton variant="rounded" width={'95%'} height={50} />
